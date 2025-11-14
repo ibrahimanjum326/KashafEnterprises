@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+    <title>Kashaf Enterprises</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial,
+                sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: rgb(255, 250, 232);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background-color: rgb(255, 68, 0);
+            color: white;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            width: 90%;
+            margin: 0 auto;
+            border-radius: 25px;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1;
+            color: rgb(255, 244, 228);
+        }
+
+        .as {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .as .a {
+            position: relative;
+            color: rgb(255, 203, 154);
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+            font-weight: 500;
+            padding: 8px 0;
+        }
+
+        .as .a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 2px;
+            background-color: rgb(255, 203, 154);
+            transition: width 0.2s ease-in-out;
+        }
+
+        .as .a:hover::after {
+            width: 100%;
+            color: orangered;
+        }
+
+        .a:hover {
+            color: orangered;
+        }
+
+        .cta-btn {
+            text-decoration: none;
+            color: #111;
+            background-color: #fff;
+            border: 2px solid;
+            border-radius: 25px;
+            padding: 8px 16px;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        .cta-btn:hover {
+            background-color: black;
+            color: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(68, 12, 12, 0.3);
+        }
+
+        main {
+            position: relative;
+            background-image: url(main-bg.jpeg);
+            height: fit-content;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: fixed;
+            padding-bottom: 5%;
+
+        }
+
+        main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: inherit;
+            background-size: cover;
+            background-position: center;
+            filter: blur(4px) brightness(0.7);
+            z-index: 0;
+            transition: 0.3s ease-in-out;
+        }
+
+        main>* {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        @media (max-width: 900px) {
+            nav {
+                flex-wrap: wrap;
+                padding: 15px 20px;
+            }
+
+            .as {
+                gap: 20px;
+                margin-left: 0;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: rgb(255, 244, 228);
+            border-radius: 2px;
+        }
+
+        @media (max-width: 700px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .as {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.6);
+                border-radius: 15px;
+                margin-top: 15px;
+                text-align: center;
+                padding: 15px 0;
+            }
+
+            .as.show {
+                display: flex;
+            }
+
+            .as .a,
+            .cta-btn {
+                color: white;
+            }
+
+            .cta-btn {
+                background-color: transparent;
+                border: 1px solid white;
+            }
+
+            .cta-btn:hover {
+                background-color: white;
+                color: black;
+            }
+        }
+
+        body {
+            cursor: url('cursor.png'), auto;
+        }
+
+        .banner {
+            margin-top: 5%;
+            margin-left: 5%;
+        }
+
+        .reveal-text {
+            font-size: 4rem;
+            font-weight: 700;
+            text-align: center;
+            color: transparent;
+            -webkit-text-stroke: 2px rgb(248, 143, 105);
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+
+        .reveal-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            color: white;
+            -webkit-text-stroke: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            transition: width 1s ease 2s;
+
+        }
+
+
+        .reveal-text.active::after {
+            width: 100%;
+        }
+
+        .wt {
+            font-size: 4rem;
+            color: rgb(255, 123, 0);
+        }
+
+
+        @media (max-width: 768px) {
+            .reveal-text {
+                -webkit-text-stroke: 2px rgb(248, 143, 105);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .reveal-text {
+                font-size: 2rem;
+                -webkit-text-stroke: 2px rgb(248, 143, 105);
+            }
+
+            .wt {
+                font-size: 3rem;
+                color: rgb(255, 123, 0);
+            }
+
+            .banner {
+                margin-top: 30%;
+            }
+        }
+
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .read-more {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+            }
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 8px 18px;
+            color: rgb(0, 0, 0);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease-in-out;
+        }
+
+
+        #moreText {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            width: 90%;
+            margin: 100px auto;
+            padding: 50px;
+            border-radius: 25px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: white;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+
+        .info-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .info-text h2 {
+            font-size: 2rem;
+            color: orangered;
+            margin-bottom: 20px;
+        }
+
+        .info-text p {
+            line-height: 1.7;
+            color: rgb(255, 220, 200);
+        }
+
+
+        .info-images {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-width: 280px;
+        }
+
+        .info-images img {
+            width: 250px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: absolute;
+        }
+
+
+        .info-images img:nth-child(1) {
+            transform: rotate(-8deg) translate(-60px, -20px);
+            z-index: 1;
+        }
+
+        .info-images img:nth-child(2) {
+            transform: rotate(4deg) translate(0, 30px);
+            z-index: 2;
+        }
+
+        .info-images img:nth-child(3) {
+            transform: rotate(10deg) translate(60px, -20px);
+            z-index: 3;
+        }
+
+
+        .info-images img:hover {
+            transform: scale(1.05);
+            z-index: 5;
+        }
+
+
+        @media (max-width: 768px) {
+            info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .info-images {
+                margin-top: 40px;
+            }
+        }
+
+
+
+
+        @media (max-width: 900px) {
+            info {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 25px;
+            }
+
+            .info-images {
+                margin-top: 40px;
+                height: 200px;
+            }
+
+            .info-images img {
+                width: 220px;
+                height: 150px;
+            }
+
+            .info-text h2 {
+                font-size: 2rem;
+            }
+
+            .info-text p {
+                font-size: 1rem;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+            info {
+                width: 95%;
+                padding: 30px 20px;
+                height: fit-content;
+            }
+
+            .info-text h2 {
+                font-size: 1.6rem;
+            }
+
+            .info-text p {
+                font-size: 0.95rem;
+            }
+
+            .info-images {
+                height: 180px;
+            }
+
+            .info-images img {
+                width: 180px;
+                height: 120px;
+            }
+
+            .info-images img:nth-child(1) {
+                transform: rotate(-6deg) translate(-50px, -15px);
+            }
+
+            .info-images img:nth-child(2) {
+                transform: rotate(4deg) translate(0, 25px);
+            }
+
+            .info-images img:nth-child(3) {
+                transform: rotate(8deg) translate(50px, -15px);
+            }
+        }
+
+        /* --- Base Film Section --- */
+        .film-tape {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background: #111;
+            padding: 50px 0;
+        }
+
+        /* --- The scrolling strip --- */
+        .film-strip {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .film-track {
+            display: flex;
+            animation: scroll 9s linear infinite;
+        }
+
+        .film-track:hover,
+        .film-border:hover {
+            animation-play-state: paused;
+        }
+
+        .film-track img {
+            width: 400px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin: 0 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* --- Continuous scrolling animation --- */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* --- Film borders (move opposite direction) --- */
+        .film-border {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: repeating-linear-gradient(to right,
+                    #000 0 20px,
+                    #fff 20px 40px);
+            background-size: 80px 100%;
+            z-index: 2;
+            opacity: 0.7;
+            animation: borderScroll 1s linear infinite;
+        }
+
+        .top-border {
+            top: 0;
+        }
+
+        .bottom-border {
+            bottom: 0;
+        }
+
+        @keyframes borderScroll {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 80px 0;
+            }
+        }
+
+        /* --- Responsiveness --- */
+        @media (max-width: 768px) {
+            .film-track img {
+                width: 280px;
+                height: 180px;
+            }
+
+            .film-border {
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .film-track img {
+                width: 200px;
+                height: 130px;
+            }
+
+            .film-border {
+                height: 15px;
+            }
+        }
+
+        .why-us {
+            text-align: center;
+            color: white;
+            padding: 100px 10%;
+            backdrop-filter: blur(10px);
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .why-us h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .why-us h2 span {
+            color: orangered;
+        }
+
+        .why-grid {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .why-card {
+            background: rgba(255, 102, 0, 0.514);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            width: 500px;
+            padding: 30px 20px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+        }
+
+        .why-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(255, 123, 0, 0.3);
+            border-color: orangered;
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            transition: transform 0.4s ease;
+        }
+
+        .why-card:hover .icon {
+            transform: rotate(15deg) scale(1.2);
+        }
+
+        .why-card h3 {
+            font-size: 1.4rem;
+            color: rgb(255, 203, 154);
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            color: rgb(255, 235, 215);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .why-us {
+                padding: 70px 5%;
+            }
+
+            .why-card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .why-grid {
+                overflow-x: scroll;
+            }
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            background: rgba(0, 0, 0, 0.849);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 60px 10% 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            color: orangered;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p {
+            color: #f0e6dc;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin: 8px 0;
+        }
+
+        .footer-section ul li a {
+            color: #f0e6dc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: orangered;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 15px;
+        }
+
+        .footer-bottom p {
+            margin: 5px 0;
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: orangered;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-section h3 {
+                margin-bottom: 10px;
+            }
+        }
+
+        header {
+            position: relative;
+            width: 100%;
+            z-index: 10;
+        }
+
+        nav {
+            position: relative;
+            width: 90%;
+            margin: 0 auto;
+            border-radius: 25px;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            transition: all 0.4s ease, background-color 0.6s ease;
+        }
+
+        /* Sticky effect when scrolled */
+        nav.sticky {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 0 0 25px 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+
+        }
+
+        /* ---------- SPECIALIZE SECTION ---------- */
+        .specialize {
+            text-align: center;
+            color: white;
+            padding: 100px 10%;
+            backdrop-filter: blur(10px);
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .specialize h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+
+        .specialize h2 span {
+            color: orangered;
+        }
+
+        .specialize-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .special-card {
+            background: rgba(255, 102, 0, 0.514);
+            border-radius: 20px;
+            overflow: hidden;
+            width: 500px;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .special-card:hover {
+            box-shadow: 0 15px 40px rgba(255, 123, 0, 0.3);
+        }
+
+        .special-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .special-content {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .special-content h3 {
+            font-size: 1.4rem;
+            color: rgb(255, 203, 154);
+            margin-bottom: 10px;
+        }
+
+        .special-content p {
+            color: rgb(255, 235, 215);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .special-card .arrow-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: black;
+            color: white;
+            border-radius: 50%;
+            padding: 15px 15px;
+            font-size: 1rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .special-card:hover .arrow-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .arrow-btn:hover {
+            background: orangered;
+        }
+
+        .specially-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background: rgba(255, 102, 0, 0.514);
+            backdrop-filter: blur(6px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            width: 80%;
+            transition: all 0.3s ease-in-out;
+            flex-wrap: wrap;
+        }
+
+        .specially-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .specially-text {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .specially-text h3 {
+            font-size: 1.8rem;
+            color: rgb(255, 203, 154);
+            margin-bottom: 10px;
+        }
+
+        .specially-text p {
+            color: rgb(255, 235, 215);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Reuse arrow button styling */
+        .specially-card .arrow-btn {
+            position: relative;
+            transform: none;
+            bottom: auto;
+            right: auto;
+            padding: 12px 15px;
+            background: black;
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .arrow-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: white;
+            font-size: 1rem;
+            background: rgb(2, 2, 2);
+            border-radius: 100%;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .specially-card:hover .arrow-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .arrow-btn:hover {
+            background: orangered;
+        }
+
+
+        .design-frames {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-width: 280px;
+        }
+
+        .design-frames img {
+            width: 200px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: absolute;
+        }
+
+
+        .design-frames img:nth-child(1) {
+            transform: rotate(-8deg) translate(-60px, -20px);
+            z-index: 1;
+        }
+
+        .design-frames img:nth-child(2) {
+            transform: rotate(4deg) translate(0, 30px);
+            z-index: 2;
+        }
+
+        .design-frames img:nth-child(3) {
+            transform: rotate(10deg) translate(60px, -20px);
+            z-index: 3;
+        }
+
+
+        .design-frames img:hover {
+            transform: scale(1.05);
+            z-index: 5;
+        }
+
+        /* === FULLY RESPONSIVE SPECIAL CARD FIX === */
+        .specially-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            background: rgba(255, 102, 0, 0.514);
+            border-radius: 20px;
+            padding: 40px 25px;
+            margin: 0 auto;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            width: 100%;
+            max-width: 1200px;
+            box-sizing: border-box;
+        }
+
+        .specially-text {
+            flex: 1 1 400px;
+            min-width: 280px;
+            max-width: 100%;
+            text-align: left;
+            color: white;
+            word-wrap: break-word;
+        }
+
+        .specially-text h3 {
+            font-size: 1.8rem;
+            color: rgb(255, 203, 154);
+            margin-bottom: 10px;
+        }
+
+        .specially-text p {
+            color: rgb(255, 235, 215);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+
+
+        /* === Tablet View === */
+        @media (max-width: 900px) {
+            .specially-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 15px;
+                gap: 20px;
+            }
+
+            .specially-text {
+                flex: none;
+                width: 100%;
+            }
+
+            .specially-text p {
+                font-size: 0.95rem;
+                padding: 0 10px;
+            }
+
+            .design-frames {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* === Mobile View === */
+        @media (max-width: 500px) {
+            .specially-card {
+                padding: 25px 10px;
+                gap: 15px;
+                width: fit-content;
+                height: 500px;
+            }
+
+            .specially-text h3 {
+                font-size: 1.4rem;
+                display: block;
+            }
+
+            .specially-text p {
+                font-size: 0.9rem;
+                display: block;
+            }
+
+            .design-frames {
+                width: 100px;
+                height: 100px;
+            }
+
+            .design-frames img {
+                width: 200px;
+                height: 100px;
+            }
+
+            .specially-card .arrow-btn {
+                font-size: 1rem;
+                padding: 8px;
+            }
+        }
+
+        /* === Embroidery Loader Styles === */
+        .embroidery-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(247, 236, 190, 0.548);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        /* circular “stitch” thread path */
+        .thread {
+            width: 120px;
+            height: 120px;
+            border: 4px dashed orangered;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+            position: relative;
+        }
+
+        /* needle moving around */
+        .needle {
+            position: absolute;
+            width: 6px;
+            height: 40px;
+            background: #222;
+            border-radius: 3px;
+            top: calc(50% - 20px);
+            left: calc(50% - 3px);
+            transform-origin: bottom center;
+            animation: stitch 2s linear infinite;
+        }
+
+        .loader-text {
+            margin-top: 30px;
+            font-size: 1.4rem;
+            color: #333;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .loader-text span {
+            color: orangered;
+        }
+
+        /* Animations */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes stitch {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Optional fade-out effect */
+        .embroidery-loader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s ease;
+        }
+    </style>
+</head>
+<div class="embroidery-loader">
+    <div class="needle"></div>
+    <div class="thread"></div>
+    <h2 class="loader-text">Kashaf <span>Enterprises</span></h2>
+</div>
+
+<body>
+    <main>
+        <header>
+            <nav>
+                <div class="logo">
+                    Kashaf<span class="conn" style="color: orangered;">Enterprises</span>
+                </div>
+
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+
+                <div class="as" id="menu">
+                    <a class="a" href="index.html">Home</a>
+                    <a class="a" href="about.html">About</a>
+                    <a class="a" href="contact.html">Contact</a>
+                    <a class="a" href="facilities.html">Facilities</a>
+                    <a href="our-work.html" class="cta-btn">Our Work</a>
+                </div>
+            </nav>
+        </header>
+        <section class="banner">
+            <h1 class="wt">Welcome To</h1><br>
+            <h1 class="reveal-text">Kashaf Enterprises</h1><br>
+            <section class="about">
+                <p>
+                    Kashaf Enterprises is a creative embroidery company dedicated to turning fabric into art. <br>
+                    We specialize in elegant, high-quality embroidery for uniforms, apparel, home décor, and customized
+                    designs. <br>
+                    With a perfect blend of traditional craftsmanship and modern technology, we bring intricate
+                    patterns, <br>
+                    vibrant colors, and fine details to life.<a href="javascript:void(0)" class="read-more"
+                        id="readMoreBtn" onclick="toggleText()">...Read More</a>
+                </p><br><br>
+
+                <div id="moreText" style="display: none;">
+                    <p>
+                        Our team focuses on precision, durability, and aesthetics — ensuring every stitch reflects
+                        beauty and <br>
+                        perfection. Whether it’s corporate branding, fashion embroidery, or personalized gifts, Kashaf
+                        <br>
+                        Enterprises delivers designs that speak elegance, creativity, and excellence.
+                    </p><br><br>
+
+                    <p>
+                        At Kashaf Enterprises, we don’t just stitch threads — we weave identity, tradition, and style
+                        into every piece.
+                    </p>
+                </div><br>
+                <h3>Want To Checkout how we execute our products?<br>Click on <a href="our-work.html"
+                        class="cta-btn">Our Work</a> to View</h3>
+            </section>
+        </section>
+    </main>
+    <info>
+        <div class="info-text">
+            <h2>How We Create Embroidery</h2>
+            <p>
+                At Kashaf Enterprises, every design begins with creativity and precision.
+                Our artisans first sketch the pattern digitally, ensuring each stitch aligns
+                perfectly. The design is then transferred to our advanced embroidery machines
+                that blend traditional skill with modern innovation.
+                <br><br>
+                Every thread, color, and texture is carefully chosen to reflect beauty,
+                durability, and excellence — turning ordinary fabric into extraordinary art.
+            </p>
+        </div>
+
+        <div class="info-images">
+            <img src="embroidery1.jpg" alt="Embroidery design 1">
+            <img src="embroidery2.jpg" alt="Embroidery design 2">
+            <img src="embroidery3.jpg" alt="Embroidery design 3">
+        </div>
+
+    </info>
+    <section class="film-tape">
+        <div class="film-border top-border"></div>
+        <div class="film-strip">
+            <div class="film-track">
+                <img src="embroidery1.jpg" alt="Embroidery 1">
+                <img src="embroidery2.jpg" alt="Embroidery 2">
+                <img src="embroidery3.jpg" alt="Embroidery 3">
+                <img src="main-bg.jpeg" alt="Embroidery 4">
+                <img src="main-bg.webp" alt="Embroidery 5">
+            </div>
+        </div>
+        <div class="film-border bottom-border"></div>
+    </section>
+    <section class="why-us" id="why-us">
+        <h2 style="-webkit-text-stroke: 1px orangered;">Why Choose <span>Kashaf Enterprises?</span></h2>
+
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                <h3>Reliability</h3>
+                <p>We ensure every project meets the highest standards of quality and precision — always delivered on
+                    time.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="icon"><i class="fa-solid fa-gears"></i></div>
+                <h3>Efficiency</h3>
+                <p>Our blend of modern technology and expert craftsmanship guarantees faster production without
+                    compromise.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="icon"><i class="fa-solid fa-palette"></i></div>
+                <h3>Creativity</h3>
+                <p>From classic designs to custom creations, our embroidery brings imagination and beauty to every
+                    stitch.</p>
+            </div>
+        </div>
+    </section>
+    <section class="specialize" id="specialize">
+        <h2 style="-webkit-text-stroke: 1px orangered;">What We <span>Specialize In</span></h2>
+
+        <div class="specialize-grid">
+            <!-- Men's Embroidery -->
+            <div class="special-card">
+                <img src="men-emb.jpg" alt="Men's Embroidery">
+                <div class="special-content">
+                    <h3>Men’s Embroidery</h3>
+                    <p>
+                        From corporate uniforms to traditional wear, our men’s embroidery blends precision and elegance
+                        —
+                        but there’s a hidden touch that makes each stitch stand apart...
+                    </p>
+                    <a href="facilities.html" class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Women's Embroidery -->
+            <div class="special-card">
+                <img src="women-emb.jpg" alt="Women's Embroidery">
+                <div class="special-content">
+                    <h3>Women’s Embroidery</h3>
+                    <p>
+                        Elegance meets craftsmanship — from fine threads to detailed embellishments, each piece tells a
+                        story...
+                        but wait till you see what our designers truly create.
+                    </p>
+                    <a href="facilities.html" class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Digitizing & Designing + Cut-Packing -->
+            <div class="specially-card">
+                <div class="specially-text">
+                    <h3>Digitizing, Designing & Cut-Packing</h3>
+                    <p>
+                        Our skilled designers transform <br> creative concepts into precise, embroidery-ready digital
+                        files.
+                        Each project is refined through expert digitizing, detailed design work, and efficient
+                        cut-packing —
+                        but what truly <br>sets us apart will surprise you <br> when you explore more...
+                    </p>
+                    <a href="facilities.html" class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="design-frames">
+                    <img src="design1.jpeg" alt="Design Sample 1">
+                    <img src="design2.jpeg" alt="Design Sample 2">
+                    <img src="design3.jpeg" alt="Design Sample 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer-container">
+            <!-- About Us -->
+            <div class="footer-section about">
+                <h3>About Us</h3>
+                <p>
+                    Kashaf Enterprises is dedicated to the art of embroidery — combining tradition, creativity,
+                    and precision to craft designs that define excellence and beauty.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="our-work.html">Our Work</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-section contact">
+                <h3>Get in Touch</h3>
+                <p><strong>Email:</strong> kashafenterprises2025@gmail.com</p><br>
+                <p><strong>Phone:</strong> (+92)301-2648387 | (+92)319-2343878 </p><br>
+                <p><strong>Location:</strong> Plot No. CI-83, Sector 16/B, Near Godra Camp, North Karachi</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Kashaf Enterprises. All Rights Reserved.</p>
+            <p>Made by <a href="#" target="_blank">Ibrahim Anjum</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("show");
+        }
+
+        window.addEventListener("load", () => {
+            const text = document.querySelector(".reveal-text");
+            // Duplicate text content into data-text for ::after
+            text.setAttribute("data-text", text.textContent);
+            setTimeout(() => {
+                text.classList.add("active");
+            }, 500); // delay before animation starts
+        });
+        function toggleText() {
+            const moreText = document.getElementById("moreText");
+            const btn = document.getElementById("readMoreBtn");
+
+            if (moreText.style.display === "none") {
+                moreText.style.display = "block";
+                btn.textContent = "Read Less";
+            } else {
+                moreText.style.display = "none";
+                btn.textContent = "Read More";
+            }
+        }
+        const nav = document.querySelector("nav");
+        const main = document.querySelector("main");
+
+        window.addEventListener("scroll", () => {
+            // Once the nav scrolls past the main section top, make it sticky
+            if (window.scrollY > main.offsetTop + 100) {
+                nav.classList.add("sticky");
+            } else {
+                nav.classList.remove("sticky");
+            }
+        });
+
+        // Optional JS: fade the loader away after content loads
+        window.addEventListener("load", () => {
+            const loader = document.querySelector(".embroidery-loader");
+            loader.classList.add("fade-out");
+            setTimeout(() => loader.style.display = "none", 1000);
+        });
+    </script>
+
+
+</body>
+
+</html>

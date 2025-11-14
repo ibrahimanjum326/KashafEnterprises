@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Kashaf Enterprises - Our Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        main {
+            background-image: url("fac-bg.jpg");
+        }
+
+        /* ===== Our Services Section (Gray theme) ===== */
+        .services-carousel {
+            background: #e6e6e6;
+            padding: 80px 0;
+            position: relative;
+            color: #222;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .services-carousel h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #111;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .services-carousel .line {
+            width: 50%;
+            height: 2px;
+            background: rgba(255, 69, 0, 0.4);
+            margin: 0 auto 50px;
+        }
+
+        /* Inner layout */
+        .services-content {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 90%;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        /* Left side text */
+        .services-text {
+            flex: 1 1 30%;
+            text-align: left;
+        }
+
+        .services-text h2 {
+            font-weight: 400;
+            font-size: 1.8rem;
+            color: #111;
+            margin-bottom: 10px;
+        }
+
+        .left-line {
+            width: 80%;
+            height: 2px;
+            background: rgba(255, 69, 0, 0.4);
+            margin: 0 0 20px 0;
+        }
+
+        .services-text p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        /* Carousel on the right */
+        .carousel-container {
+            flex: 1 1 65%;
+            overflow: hidden;
+            background: #d1d1d1;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 1s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #d9d9d9;
+            border-radius: 15px;
+            padding: 30px;
+            box-sizing: border-box;
+            gap: 5%;
+        }
+
+        .carousel-text {
+            flex: 0 0 60%;
+            text-align: left;
+        }
+
+        .carousel-text h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: orangered;
+            margin-bottom: 10px;
+        }
+
+        .carousel-text p {
+            color: #333;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .carousel-image {
+            flex: 0 0 35%;
+            text-align: right;
+        }
+
+        .carousel-image img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            max-height: 220px;
+        }
+
+        /* Dots */
+        .carousel-dots {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .carousel-dots button {
+            background: #aaa;
+            border: none;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            border-radius: 30%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dots button.active {
+            background: orangered;
+            width: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .services-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .services-text {
+                text-align: center;
+                width: 90%;
+            }
+
+            .carousel-container {
+                width: 90%;
+            }
+
+            .carousel-slide {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .carousel-text {
+                text-align: center;
+            }
+
+            .carousel-image img {
+                width: 80%;
+                margin-top: 10px;
+            }
+        }
+
+        /* second section */
+        /* ===== Women's Embroidery Section ===== */
+        .womens-embroidery {
+            background: #f3e9dd;
+            padding: 80px 0;
+        }
+
+        .womens-embroidery .carousel-container {
+            background: #e5d5c4;
+        }
+
+        .womens-embroidery .carousel-slide {
+            background: #e7d9cb;
+        }
+
+        .womens-embroidery .carousel-text h3 {
+            color: #b85c00;
+        }
+
+        /* Adjust dot colors for contrast */
+        .womens-dots button.active {
+            background: #b85c00;
+        }
+
+        /* ===== Process Section (Digitizing, Designing, Cut-Packing) ===== */
+        .process-section {
+            background: #fff8f2;
+            text-align: center;
+            padding: 100px 5%;
+            position: relative;
+        }
+
+        .process-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .center-line {
+            width: 50%;
+            height: 2px;
+            background: rgba(255, 120, 0, 0.4);
+            margin: 10px auto 30px;
+        }
+
+        .process-section .intro {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .process-grid {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 2%;
+            flex-wrap: wrap;
+        }
+
+        .process-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+            flex: 1 1 28%;
+            min-width: 280px;
+            max-width: 400px;
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+        }
+
+        .process-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .process-card .icon {
+            font-size: 2.5rem;
+            color: orangered;
+            margin-bottom: 20px;
+        }
+
+        .process-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .process-card p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 900px) {
+            .process-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .process-card {
+                max-width: 90%;
+            }
+        }
+
+        /* MOBILE SETTINGS */
+        /* ===== Mobile Responsive Fixes for Carousels ===== */
+        @media (max-width: 768px) {
+
+            /* Keep carousel container within screen */
+            .carousel-container {
+                width: 95%;
+                padding: 15px;
+                overflow: hidden;
+            }
+
+            /* Make slide content stack vertically */
+            .carousel-slide {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 25px 15px;
+                gap: 15px;
+            }
+
+            /* Adjust text */
+            .carousel-text {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+
+            .carousel-text h3 {
+                font-size: 1.2rem;
+                margin-bottom: 8px;
+            }
+
+            .carousel-text p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                color: #333;
+            }
+
+            /* Adjust image */
+            .carousel-image {
+                flex: 1 1 100%;
+                width: 100%;
+                text-align: center;
+            }
+
+            .carousel-image img {
+                width: 85%;
+                max-height: 220px;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+
+            /* Dots area */
+            .carousel-dots {
+                margin-top: 15px;
+            }
+
+            .carousel-dots button {
+                width: 10px;
+                height: 10px;
+            }
+
+            .carousel-dots button.active {
+                width: 18px;
+            }
+
+            /* Headings inside carousels */
+            .services-text h2 {
+                font-size: 1.5rem;
+            }
+
+            .services-text p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+    <!-- press embroidery cutting packing  -->
+</head>
+
+<body>
+    <div class="embroidery-loader">
+        <div class="needle"></div>
+        <div class="thread"></div>
+        <h2 class="loader-text">Kashaf <span>Enterprises</span></h2>
+    </div>
+
+    <body>
+        <main>
+            <header>
+                <nav>
+                    <div class="logo">
+                        Kashaf<span class="conn" style="color: orangered;">Enterprises</span>
+                    </div>
+
+                    <div class="menu-toggle" onclick="toggleMenu()">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+
+                    <div class="as" id="menu">
+                        <a class="a" href="index.html">Home</a>
+                        <a class="a" href="about.html">About</a>
+                        <a class="a" href="contact.html">Contact</a>
+                        <a class="a" href="facilities.html">Facilities</a>
+                        <a href="our-work.html" class="cta-btn">Our Work</a>
+                    </div>
+                </nav>
+            </header>
+
+            <h1 class="reveal-text">Our Facilities</h1>
+        </main>
+        <section class="services-carousel">
+            <h2>Our Services</h2>
+            <div class="line"></div>
+
+            <div class="services-content">
+                <div class="services-text">
+                    <h2>Men's Embroidery</h2>
+                    <div class="line left-line"></div>
+                    <p>
+                        At Kashaf Enterprises, we bring timeless artistry to men's fashion through embroidery that
+                        blends cultural heritage with modern refinement.
+                        From subtle elegance to bold statements, each stitch reflects precision and purpose.
+                    </p>
+                </div>
+
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide">
+                            <div class="carousel-text">
+                                <h3>Chikankari</h3>
+                                <p>
+                                    Chikankari is a delicate and intricate hand-embroidery technique that brings grace
+                                    and refinement to men's kurtas.
+                                    Its fine white threadwork on light fabrics speaks of timeless craftsmanship and
+                                    understated beauty.
+                                </p>
+                            </div>
+                            <div class="carousel-image">
+                                <img src="ch-men.jpg" alt="Chikankari Embroidery">
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-slide">
+                            <div class="carousel-text">
+                                <h3>Phulkari</h3>
+                                <p>
+                                    Phulkari, or “flower work,” embodies vibrant colors and expressive patterns. It
+                                    transforms men’s shawls and jackets
+                                    into statements of tradition and culture.
+                                </p>
+                            </div>
+                            <div class="carousel-image">
+                                <img src="phulkari.jpg" alt="Phulkari Embroidery">
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="carousel-slide">
+                            <div class="carousel-text">
+                                <h3>Zardozi</h3>
+                                <p>
+                                    Zardozi embroidery adds royal charm through metallic threads and embellishments,
+                                    perfect for sherwanis and ceremonial wear
+                                    that exude opulence.
+                                </p>
+                            </div>
+                            <div class="carousel-image">
+                                <img src="zardozi.jpg" alt="Zardozi Embroidery">
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="carousel-slide">
+                            <div class="carousel-text">
+                                <h3>Shaneel</h3>
+                                <p>
+                                    The key feature of Shaneel (or chenille) embroidery is its soft, carpet-like pile,
+                                    which is made from yarn rather than flat embroidery thread. This creates a
+                                    three-dimensional effect and a rich feel.
+                                </p>
+                            </div>
+                            <div class="carousel-image">
+                                <img src="./shaneel.jpeg" alt="Zardozi Embroidery">
+                            </div>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="carousel-slide">
+                            <div class="carousel-text">
+                                <h3>Appliqué</h3>
+                                <p>
+                                    Appliqué embroidery layers fabrics with precision to create striking visual depth —
+                                    a blend of creativity and structure.
+                                </p>
+                            </div>
+                            <div class="carousel-image">
+                                <img src="./applique.avif" alt="Appliqué Embroidery">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-dots"></div>
+                </div>
+            </div>
+        </section>
+        <br><br><br><br>
+        <section class="services-carousel womens-embroidery">
+            <div class="services-content">
+                <div class="services-text">
+                    <h2>Women's Embroidery</h2>
+                    <div class="line left-line"></div>
+                    <p>
+                        Women’s embroidery celebrates elegance, color, and expression — from timeless handwork to
+                        intricate thread artistry.
+                        Each stitch narrates a story of creativity, culture, and feminine grace.
+                    </p>
+                </div>
+
+                <div class="carousel-container">
+                    <div class="carousel-track womens-track">
+
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide">
+                            <div class="carousel-text">
+                                <h3>Aari</h3>
+                                <p>
+                                    Aari embroidery showcases fine chain stitches worked using a hooked needle, creating
+                                    stunning floral and paisley patterns that add luxury to sarees, blouses, and
+                                    dupattas.
+                                </p>
+                            </div>
+                            <div class="carousel-image">
+                                <img src="aari.jpg" alt="Aari Embroidery">
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-slide">
+                            <div class="carousel-text">
+                                <h3>Chikankari</h3>
+                                <p>
+                                    Known for its delicate white threadwork, Chikankari adds soft charm and grace to
+                                    women’s wear — symbolizing purity and sophistication across generations.
+                                </p>
+                            </div>
+                            <div class="carousel-image">
+                                <img src="ch-women.jpg" alt="Chikankari Embroidery">
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="carousel-slide">
+                            <div class="carousel-text">
+                                <h3>Zardozi</h3>
+                                <p>
+                                    Regal and ornate, Zardozi embroidery features metallic threads, beads, and sequins —
+                                    bringing grandeur to bridal and festive ensembles.
+                                </p>
+                            </div>
+                            <div class="carousel-image">
+                                <img src="zardozi-w.jpg" alt="Zardozi Embroidery">
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="carousel-slide">
+                            <div class="carousel-text">
+                                <h3>Cross-Stitch</h3>
+                                <p>
+                                    Cross-stitch embroidery features intersecting X-shaped stitches, offering structured
+                                    yet vibrant designs ideal for decorative linens and garments.
+                                </p>
+                            </div>
+                            <div class="carousel-image">
+                                <img src="cross-stich.jpg" alt="Cross-Stitch Embroidery">
+                            </div>
+                        </div>
+
+                        <!-- Slide 5 -->
+                        <div class="carousel-slide">
+                            <div class="carousel-text">
+                                <h3>Whitework</h3>
+                                <p>
+                                    Elegant and subtle, Whitework uses white threads on white fabrics, creating
+                                    graceful, tone-on-tone patterns — a true expression of minimal beauty.
+                                </p>
+                            </div>
+                            <div class="carousel-image">
+                                <img src="whitework.jpg" alt="Whitework Embroidery">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="carousel-dots womens-dots"></div>
+                </div>
+            </div>
+        </section><br><br><br><br>
+        <section class="process-section">
+            <h2>Digitizing, Designing & Cut-Packing</h2>
+            <div class="line center-line"></div>
+            <p class="intro">
+                Beyond embroidery, our expertise extends into the essential processes that make every garment
+                production-ready — blending technology, artistry, and precision.
+            </p>
+
+            <div class="process-grid">
+                <!-- Digitizing -->
+                <div class="process-card">
+                    <div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3>Digitizing</h3>
+                    <p>
+                        Our team converts intricate designs into precise digital embroidery files using advanced
+                        software, ensuring every stitch follows the designer’s intent — where technology meets
+                        craftsmanship.
+                    </p>
+                </div>
+
+                <!-- Designing -->
+                <div class="process-card">
+                    <div class="icon"><i class="fa-solid fa-pen-nib"></i></div>
+                    <h3>Designing</h3>
+                    <p>
+                        From conceptual sketches to full-scale embroidery layouts, our creative designers bring ideas to
+                        life — crafting visuals that inspire, impress, and tell your brand’s story.
+                    </p>
+                </div>
+
+                <!-- Cut-Packing -->
+                <div class="process-card">
+                    <div class="icon"><i class="fa-solid fa-scissors"></i></div>
+                    <h3>Cut-Packing</h3>
+                    <p>
+                        After the embroidery is perfected, our expert team carefully trims, checks, and packs every
+                        piece — ready for dispatch with the same attention to detail that defines Kashaf Enterprises.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <br><br><br><br>
+        <footer>
+            <div class="footer-container">
+                <!-- About Us -->
+                <div class="footer-section about">
+                    <h3>About Us</h3>
+                    <p>
+                        Kashaf Enterprises is dedicated to the art of embroidery — combining tradition, creativity,
+                        and precision to craft designs that define excellence and beauty.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="our-work.html">Our Work</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section contact">
+                    <h3>Get in Touch</h3>
+                    <p><strong>Email:</strong> kashafenterprises2025@gmail.com</p><br>
+                    <p><strong>Phone:</strong> (+92)301-2648387 | (+92)319-2343878 </p><br>
+                    <p><strong>Location:</strong> Plot No. CI-83, Sector 16/B, Near Godra Camp, North Karachi</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Kashaf Enterprises. All Rights Reserved.</p>
+                <p>Made by <a href="#" target="_blank">Ibrahim Anjum</a></p>
+            </div>
+        </footer>
+        <script>
+            function toggleMenu() {
+                document.getElementById("menu").classList.toggle("show");
+            }
+            const nav = document.querySelector("nav");
+            const main = document.querySelector("main");
+
+            window.addEventListener("scroll", () => {
+                // Once the nav scrolls past the main section top, make it sticky
+                if (window.scrollY > main.offsetTop + 100) {
+                    nav.classList.add("sticky");
+                } else {
+                    nav.classList.remove("sticky");
+                }
+            });
+
+            // Optional JS: fade the loader away after content loads
+            window.addEventListener("load", () => {
+                const loader = document.querySelector(".embroidery-loader");
+                loader.classList.add("fade-out");
+                setTimeout(() => loader.style.display = "none", 1000);
+            });
+            window.addEventListener("load", () => {
+                const text = document.querySelector(".reveal-text");
+                // Duplicate text content into data-text for ::after
+                text.setAttribute("data-text", text.textContent);
+                setTimeout(() => {
+                    text.classList.add("active");
+                }, 500); // delay before animation starts
+            });
+        </script>
+        <!-- first section -->
+        <script>
+            const track = document.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const dotsNav = document.querySelector('.carousel-dots');
+
+            // Create dots dynamically
+            slides.forEach((_, i) => {
+                const button = document.createElement('button');
+                if (i === 0) button.classList.add('active');
+                dotsNav.appendChild(button);
+            });
+
+            const dots = Array.from(dotsNav.children);
+            let currentIndex = 0;
+
+            function moveToSlide(index) {
+                track.style.transform = `translateX(-${index * 100}%)`;
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[index].classList.add('active');
+            }
+
+            // Auto slide every 5 seconds
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                moveToSlide(currentIndex);
+            }, 5000);
+        </script>
+        <!-- second section -->
+        <script>
+            // Women's Carousel Auto Slide
+            const womensTrack = document.querySelector('.womens-track');
+            const womensSlides = Array.from(womensTrack.children);
+            const womensDotsNav = document.querySelector('.womens-dots');
+
+            // Create dots dynamically
+            womensSlides.forEach((_, i) => {
+                const button = document.createElement('button');
+                if (i === 0) button.classList.add('active');
+                womensDotsNav.appendChild(button);
+            });
+
+            const womensDots = Array.from(womensDotsNav.children);
+            let womensIndex = 0;
+
+            function moveToWomensSlide(index) {
+                womensTrack.style.transform = `translateX(-${index * 100}%)`;
+                womensDots.forEach(dot => dot.classList.remove('active'));
+                womensDots[index].classList.add('active');
+            }
+
+            // Auto slide every 5s
+            setInterval(() => {
+                womensIndex = (womensIndex + 1) % womensSlides.length;
+                moveToWomensSlide(womensIndex);
+            }, 5000);
+        </script>
+        <script>
+            /* ===== Men's Embroidery Carousel ===== */
+            (function () {
+                const track = document.querySelector('.carousel-track');
+                const slides = Array.from(track.children);
+                const dotsNav = document.querySelector('.carousel-dots');
+
+                // Create dots dynamically
+                if (!dotsNav.hasChildNodes()) {
+                    slides.forEach((_, i) => {
+                        const dot = document.createElement('button');
+                        if (i === 0) dot.classList.add('active');
+                        dotsNav.appendChild(dot);
+                    });
+                }
+
+                const dots = Array.from(dotsNav.children);
+                let currentIndex = 0;
+
+                function moveToSlide(index) {
+                    currentIndex = index;
+                    track.style.transition = 'transform 0.8s ease';
+                    track.style.transform = `translateX(-${index * 100}%)`;
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[index].classList.add('active');
+                }
+
+                dots.forEach((dot, i) => {
+                    dot.addEventListener('click', () => moveToSlide(i));
+                });
+            })();
+        </script>
+        <!-- jumping through dots -->
+        <script>
+            /* ===== Women's Embroidery Carousel ===== */
+            (function () {
+                const track = document.querySelector('.womens-track');
+                const slides = Array.from(track.children);
+                const dotsNav = document.querySelector('.womens-dots');
+
+                // Create dots dynamically
+                if (!dotsNav.hasChildNodes()) {
+                    slides.forEach((_, i) => {
+                        const dot = document.createElement('button');
+                        if (i === 0) dot.classList.add('active');
+                        dotsNav.appendChild(dot);
+                    });
+                }
+
+                const dots = Array.from(dotsNav.children);
+                let currentIndex = 0;
+
+                function moveToSlide(index) {
+                    currentIndex = index;
+                    track.style.transition = 'transform 0.8s ease';
+                    track.style.transform = `translateX(-${index * 100}%)`;
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[index].classList.add('active');
+                }
+
+                dots.forEach((dot, i) => {
+                    dot.addEventListener('click', () => moveToSlide(i));
+                });
+            })();
+        </script>
+
+
+    </body>
+
+</html>

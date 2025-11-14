@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Kashaf Enterprises - ABout Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        main {
+            background-image: url("ab-bg.jpg");
+        }
+
+        .about-faqs {
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .about-faqs h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: rgb(255, 203, 154);
+            -webkit-text-stroke: 1px orangered;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgb(255, 255, 255);
+            margin-bottom: 10px;
+            background-color: #E2DFDF;
+            padding: 20px;
+            border-radius: 50px;
+        }
+
+        .faq-question {
+            background: none;
+            border: none;
+            outline: none;
+            width: 100%;
+            color: rgb(0, 0, 0);
+            font-size: 1.2rem;
+            text-align: left;
+            padding: 15px 0;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 0 15px 0;
+            font-size: 1rem;
+            color: rgb(255, 8, 0);
+            line-height: 1.6;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            transition: transform 0.3s ease, color 0.3s ease;
+            display: block;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+            color: orangered;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        /* ===== About Intro Cards ===== */
+        .about-intro {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 60px 8%;
+            flex-wrap: wrap;
+        }
+
+        .about-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            width: 320px;
+            height: 220px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .about-card:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Headings */
+        .about-card h3 {
+            font-size: 1.8rem;
+            color: rgb(255, 255, 255);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease;
+            white-space: nowrap;
+        }
+
+        /* Paragraphs (hidden by default) */
+        .about-card p {
+            position: absolute;
+            top: 50%;
+            left: -100%;
+            transform: translateY(-50%);
+            opacity: 0;
+            width: 80%;
+            font-size: 1rem;
+            color: #ffffff;
+            line-height: 1.5;
+            transition: all 0.6s ease;
+        }
+
+        /* Hover animation */
+        .about-card:hover h3 {
+            left: 150%;
+            opacity: 0;
+            position: relative;
+        }
+
+        .about-card:hover p {
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+        #aim{
+            background-image: url(aim.jpg);
+        }
+        #vis{
+            background-image: url(vision.jpg);
+        }
+        #back{
+            background-image: url(backgorund.jpg);
+        }
+        #back h3{
+            color: #000;
+        }
+        #back p{
+            color: #000;
+        }
+        /* Responsive */
+        @media (max-width: 900px) {
+            .about-intro {
+                gap: 30px;
+                padding: 40px 5%;
+            }
+
+            .about-card {
+                width: 280px;
+                height: 200px;
+            }
+
+            .about-card h3 {
+                font-size: 1.6rem;
+            }
+
+            .about-card p {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-intro {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-card {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+
+        /* ===== Intro Card (Main About Section) ===== */
+        .about-intro-card {
+            padding: 0%;
+            background: linear-gradient(to right, rgba(255, 237, 224, 0.1), rgba(255, 195, 160, 0.1));
+        }
+
+        .intro-content {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 60px 50px;
+            max-width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            color: #fff;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+         h2 {
+            padding-top: 5%;
+            padding-left: 3%;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: orangered;
+            -webkit-text-stroke: 0.5px white;
+        }
+
+        .intro-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #000000;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 900px) {
+            .about-intro-card {
+                padding: 80px 6%;
+            }
+
+            .intro-content {
+                padding: 40px 30px;
+            }
+
+            .intro-content h2 {
+                font-size: 2rem;
+            }
+
+            .intro-content p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro-content {
+                padding: 30px 20px;
+            }
+
+            .intro-content h2 {
+                font-size: 1.7rem;
+            }
+
+            .intro-content p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="embroidery-loader">
+        <div class="needle"></div>
+        <div class="thread"></div>
+        <h2 class="loader-text">Kashaf <span>Enterprises</span></h2>
+    </div>
+
+    <body>
+        <main>
+            <header>
+                <nav>
+                    <div class="logo">
+                        Kashaf<span class="conn" style="color: orangered;">Enterprises</span>
+                    </div>
+
+                    <div class="menu-toggle" onclick="toggleMenu()">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+
+                    <div class="as" id="menu">
+                        <a class="a" href="index.html">Home</a>
+                        <a class="a" href="about.html">About</a>
+                        <a class="a" href="contact.html">Contact</a>
+                        <a class="a" href="facilities.html">Facilities</a>
+                        <a href="our-work.html" class="cta-btn">Our Work</a>
+                    </div>
+                </nav>
+            </header>
+
+            <h1 class="reveal-text">About Us</h1>
+        </main>
+        <section class="about-intro-card">
+            <h2>Introduction</h2>
+            <div class="intro-content">
+                <p>
+                    Founded in <strong>2022</strong>, <strong>Kashaf Enterprises</strong> stands as a leading name in
+                    the embroidery and garment industry of Pakistan.
+                    With a passion for precision and design, we specialize in creating both men’s and women’s
+                    embroidery, combining traditional artistry
+                    with modern techniques. Our operations are powered by state-of-the-art <strong>Barudan embroidery
+                        machines</strong> along with other
+                    advanced multi-head embroidery systems that ensure consistency, quality, and innovation in every
+                    stitch. <br><br>
+                    From digital design and digitizing to cut-and-pack solutions, our dedicated team of professionals
+                    ensures every creation reflects
+                    the elegance and craftsmanship that define our brand. At Kashaf Enterprises, embroidery isn’t just a
+                    process — it’s our expression
+                    of creativity, culture, and commitment to excellence.
+                </p>
+            </div>
+        </section>
+
+        <br><br>
+        <section class="about-intro">
+            <div class="about-card" id="vis">
+                <h3>Vision</h3>
+                <p>
+                    To become a globally recognized embroidery brand that redefines traditional craftsmanship
+                    with innovative techniques while maintaining elegance and cultural authenticity.
+                </p>
+            </div>
+
+            <div class="about-card" id="back">
+                <h3>Background</h3>
+                <p>
+                    Established in 2022, Kashaf Enterprises began with a small team of passionate artisans
+                    who believed in merging timeless embroidery traditions with contemporary fashion trends.
+                </p>
+            </div>
+
+            <div class="about-card" id="aim">
+                <h3>Aim</h3>
+                <p>
+                    Our aim is to deliver excellence in every thread — ensuring customer satisfaction,
+                    creative innovation, and sustainable manufacturing practices in the textile industry.
+                </p>
+            </div>
+        </section>
+
+        <br><br>
+        <section class="about-faqs">
+            <h2>Learn More About Kashaf Enterprises</h2>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What is Kashaf Enterprises?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Kashaf Enterprises is a premium embroidery and garment manufacturing company
+                        specializing in both men’s and women’s apparel. From traditional craftsmanship
+                        to modern digital embroidery, each piece reflects precision and creativity.
+                    </p>
+                </div>
+            </div><br>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Who is the owner, and when was it established?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Kashaf Enterprises was founded and is led by <strong>M.Kashif Bin Yaseen</strong>,
+                        whose vision brought together innovation and artistry. The company began its
+                        journey in <strong>2022</strong> and has since evolved into a trusted name in
+                        the embroidery industry.
+                    </p>
+                </div>
+            </div><br>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What is their main objective?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        The primary goal of Kashaf Enterprises is to blend traditional embroidery
+                        craftsmanship with modern technology, delivering products that represent
+                        both cultural heritage and global standards of quality.
+                    </p>
+                </div>
+            </div><br>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Where can I visit their factory?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        You can visit Kashaf Enterprises at:
+                        <br><strong>Plot No. CI-83, Sector 16/B, Near Godra Camp, North Karachi</strong>.
+                        Visitors are welcome by appointment — reach out via email or phone before visiting.
+                    </p>
+                </div>
+            </div><br><br><br>
+        </section>
+
+        <br><br><br><br>
+        <footer>
+            <div class="footer-container">
+                <!-- About Us -->
+                <div class="footer-section about">
+                    <h3>About Us</h3>
+                    <p>
+                        Kashaf Enterprises is dedicated to the art of embroidery — combining tradition, creativity,
+                        and precision to craft designs that define excellence and beauty.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="our-work.html">Our Work</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section contact">
+                    <h3>Get in Touch</h3>
+                    <p><strong>Email:</strong> kashafenterprises2025@gmail.com</p><br>
+                    <p><strong>Phone:</strong> (+92)301-2648387 | (+92)319-2343878 </p><br>
+                    <p><strong>Location:</strong> Plot No. CI-83, Sector 16/B, Near Godra Camp, North Karachi</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Kashaf Enterprises. All Rights Reserved.</p>
+                <p>Made by <a href="#" target="_blank">Ibrahim Anjum</a></p>
+            </div>
+        </footer>
+        <script>
+            function toggleMenu() {
+                document.getElementById("menu").classList.toggle("show");
+            }
+            const nav = document.querySelector("nav");
+            const main = document.querySelector("main");
+
+            window.addEventListener("scroll", () => {
+                // Once the nav scrolls past the main section top, make it sticky
+                if (window.scrollY > main.offsetTop + 100) {
+                    nav.classList.add("sticky");
+                } else {
+                    nav.classList.remove("sticky");
+                }
+            });
+
+            // Optional JS: fade the loader away after content loads
+            window.addEventListener("load", () => {
+                const loader = document.querySelector(".embroidery-loader");
+                loader.classList.add("fade-out");
+                setTimeout(() => loader.style.display = "none", 1000);
+            });
+            window.addEventListener("load", () => {
+                const text = document.querySelector(".reveal-text");
+                // Duplicate text content into data-text for ::after
+                text.setAttribute("data-text", text.textContent);
+                setTimeout(() => {
+                    text.classList.add("active");
+                }, 500); // delay before animation starts
+            });
+        </script>
+        <!-- page script -->
+        <script>
+            const faqItems = document.querySelectorAll(".faq-item");
+
+            faqItems.forEach((item) => {
+                item.querySelector(".faq-question").addEventListener("click", () => {
+                    item.classList.toggle("active");
+                    faqItems.forEach((other) => {
+                        if (other !== item) other.classList.remove("active");
+                    });
+                });
+            });
+        </script>
+
+    </body>
+
+</html>

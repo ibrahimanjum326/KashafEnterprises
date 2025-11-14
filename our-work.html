@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <title>Kashaf Enterprises - Our Work</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- degitize press embroidery cutting packing  -->
+    <style>
+        /* ===== MAIN HERO AREA ===== */
+        body {
+            background-color: #2b2929;
+        }
+
+        main {
+            position: relative;
+            height: 650px;
+            background-image: url("our-work-bg.webp");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 0 0 80px 80px;
+            overflow: hidden;
+            color: white;
+            border-radius: 0%;
+        }
+
+        /* Fabric texture overlay */
+        main::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            opacity: 0.15;
+            mix-blend-mode: multiply;
+            pointer-events: none;
+        }
+
+        /* Inner gradient shadow */
+        main::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 80%;
+            height: 100%;
+            background: radial-gradient(circle at bottom left,
+                    rgb(0, 0, 0) 0%,
+                    rgba(0, 0, 0, 0.849) 25%,
+                    rgba(0, 0, 0, 0.685) 50%,
+                    transparent 100%);
+            filter: blur(40px);
+            z-index: 0;
+        }
+
+        /* ===== NAVIGATION FIX ===== */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        /* ===== CENTERED HERO CONTENT ===== */
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .reveal-text {
+            font-size: 6rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+            margin-bottom: 15px;
+        }
+
+        .main-description {
+            max-width: 750px;
+            color: rgb(255, 241, 225);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            main {
+                height: 520px;
+                border-radius: 0 0 60px 60px;
+            }
+
+            .reveal-text {
+                font-size: 2.2rem;
+            }
+
+            .main-description {
+                font-size: 0.95rem;
+            }
+
+            nav {
+                padding: 18px 6%;
+            }
+        }
+
+        /* MANUFACTURING SECTION */
+        .manu {
+            height: fit-content;
+            margin: 3%;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial,
+                sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        .manu h1 {
+            margin-left: 5%;
+            color: orangered;
+            font-weight: 500;
+        }
+
+        /* Main card with glowing border */
+        .ani {
+            position: relative;
+            margin: 5%;
+            padding: 5%;
+            border: 2px solid orangered;
+            border-radius: 20px;
+            background: #1c1c1c;
+            box-shadow: 0 0 25px rgba(255, 69, 0, 0.3);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            animation: glowPulse 3s infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            0% {
+                box-shadow: 0 0 15px rgba(255, 69, 0, 0.4);
+            }
+
+            100% {
+                box-shadow: 0 0 40px rgba(255, 69, 0, 0.7);
+            }
+        }
+
+        .info {
+            width: 75%;
+        }
+
+        .main-con {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* ARROW BUTTON */
+        .arrow {
+            width: 120px;
+            height: 120px;
+            border: 3px solid orangered;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: orangered;
+            font-size: 2.5rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .arrow i {
+            transition: all 0.3s ease;
+        }
+
+        /* Hover animation for arrow */
+        .arrow:hover {
+            background: orangered;
+            color: white;
+            box-shadow: 0 0 25px orangered;
+            transform: scale(1.05);
+        }
+
+        /* Text and headings */
+        .info h1 {
+            color: white;
+            font-weight: 500;
+        }
+
+        .info p {
+            font-size: 1.05rem;
+            color: #f1f1f1;
+            line-height: 1.8;
+        }
+
+        .further {
+            border-top: #f1f1f1 2px solid;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-con {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .info {
+                width: 100%;
+                text-align: center;
+            }
+
+            .arrow {
+                width: 90px;
+                height: 90px;
+                font-size: 2rem;
+            }
+        }
+
+        /* === Text morph animations === */
+        @keyframes slideOutRight {
+            0% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateX(150px);
+            }
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-150px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fadesout {
+            animation: slideOutRight 0.6s forwards ease-in;
+        }
+
+        .fadesin {
+            animation: slideInLeft 0.6s forwards ease-out;
+        }
+
+        /* ===== PROCESS OVERVIEW ===== */
+        .process-overview {
+            background: #1e1d1d;
+            padding: 30px 8%;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .process-steps .step {
+            color: white;
+            flex: 1;
+            min-width: 150px;
+            font-size: 1.1rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .process-steps .step i {
+            color: orangered;
+            font-size: 2rem;
+        }
+
+        /* ===== SEE VISUALS BUTTON ===== */
+        .further {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        .see-visuals-btn {
+            color: #f1f1f1;
+            transition: 0.3s color ease-in-out;
+            background: transparent;
+            border: none;
+        }
+
+        .see-visuals-btn:hover {
+            color: orangered;
+            transition: 0.3s color ease-in-out;
+        }
+
+        /* ===== GLOW EFFECT FOR BORDER ===== */
+        .ani {
+            border: 2px solid orangered;
+        }
+
+        /* See Visuals Section */
+        .further {
+            border-top: 2px solid white;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .see-visuals-btn {
+            color: white;
+            font-size: 1.1rem;
+        }
+
+.visuals-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 25px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  scrollbar-width: thin;
+  scrollbar-color: orangered #1c1c1c;
+}
+
+/* Custom scrollbar for WebKit (Chrome, Edge, Safari) */
+.visuals-grid::-webkit-scrollbar {
+  height: 10px;
+}
+.visuals-grid::-webkit-scrollbar-track {
+  background: #1c1c1c;
+  border-radius: 10px;
+}
+.visuals-grid::-webkit-scrollbar-thumb {
+  background-color: orangered;
+  border-radius: 10px;
+}
+
+/* Active (visible) state */
+.visuals-grid.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Frame styles stay mostly same */
+.visual-frame {
+  min-width: 250px;
+  flex: 0 0 auto;
+  border: 2px solid orangered;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.4);
+  background: #1e1e1e;
+  transform: scale(0.95);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.visual-frame:hover {
+  transform: scale(1);
+  box-shadow: 0 0 30px rgba(255, 69, 0, 0.6);
+}
+
+.visual-frame img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.visual-frame p {
+  padding: 10px 0;
+  color: white;
+  font-weight: 500;
+  background: #2b2929;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+
+        /* Hidden state */
+        .hidden {
+            display: none;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <div class="embroidery-loader">
+        <div class="needle"></div>
+        <div class="thread"></div>
+        <h2 class="loader-text">Kashaf <span>Enterprises</span></h2>
+    </div>
+    <main>
+        <header>
+            <nav>
+                <div class="logo">
+                    Kashaf<span class="conn" style="color: orangered;">Enterprises</span>
+                </div>
+
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+
+                <div class="as" id="menu">
+                    <a class="a" href="index.html">Home</a>
+                    <a class="a" href="about.html">About</a>
+                    <a class="a" href="contact.html">Contact</a>
+                    <a class="a" href="facilities.html">Facilities</a>
+                    <a href="our-work.html" class="cta-btn">Our Work</a>
+                </div>
+            </nav>
+        </header>
+        <div class="hero-content">
+            <h1 class="reveal-text">Process</h1>
+            <p class="main-description">
+                At Kashaf Enterprises, we bring innovation and craftsmanship together. Our embroidery facility
+                operates on state-of-the-art Barudan and other precision machinery, ensuring excellence in
+                every stitch. From digitizing to finishing, our process embodies creativity, skill, and quality.
+            </p>
+        </div>
+    </main>
+    <div class="manu">
+        <h1 style="font-size: 4rem; font-weight: 400;">Manufacturing</h1>
+        <div class="ani">
+            <div class="main-con">
+                <div class="info" id="info-box">
+                    <h1><span style="font-weight: 200;">Phase 1:</span> Digitizing the design</h1><br>
+                    <h2 id="sub-heading">1. Prepare your artwork</h2><br>
+                    <p id="paragraph">
+                        Select a high-quality image. Start with a high-resolution image, such as a vector file (.AI,
+                        .EPS, .SVG), if possible, as it can be resized without losing quality. A high-resolution raster
+                        file (.JPEG, .PNG) can also work, but tracing it during the digitizing process will be more
+                        difficult.
+                        Simplify complex artwork. Intricate details and tiny text do not translate well into thread.
+                        Simplify fine lines, remove excessive small elements, and use bold, legible fonts. Gradients and
+                        soft shading are also not possible with standard embroidery and should be converted to solid
+                        colors.
+                        Choose thread colors and consider fabric type. Select the thread colors that match your design.
+                        Also, think about the fabric the design will be sewn on, as its texture and weight will
+                        influence your digitizing decisions.
+                    </p>
+                </div>
+                <div class="arrow" id="next-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+            <br><br>
+            <div class="further">
+                <button class="see-visuals-btn">See Visuals</button>
+                <div class="visuals-grid hidden">
+                    <div class="visual-frame">
+                        <img src="embroidery1.jpg" alt="Digitizing Artwork">
+                        <p>Digitizing the Design</p>
+                    </div>
+                    <div class="visual-frame">
+                        <img src="embroidery2.jpg" alt="Digitizing Software">
+                        <p>Digitizing in Software</p>
+                    </div>
+                    <div class="visual-frame">
+                        <img src="embroidery3.jpg" alt="Fabric Setup">
+                        <p>Preparing Fabric</p>
+                    </div>
+                    <div class="visual-frame">
+                        <img src="men-emb.jpg" alt="Test Stitch Embroidery">
+                        <p>Test Stitch & Execution</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- After your hero-content section -->
+    <section class="process-overview">
+        <div class="process-steps">
+            <div class="step"><i class="fa-solid fa-pen-nib"></i><span>Digitizing</span></div>
+            <div class="step"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Designing</span></div>
+            <div class="step"><i class="fa-solid fa-shirt"></i><span>Embroidery</span></div>
+            <div class="step"><i class="fa-solid fa-scissors"></i><span>Cut & Pack</span></div>
+            <div class="step"><i class="fa-solid fa-check"></i><span>Quality Check</span></div>
+        </div>
+    </section>
+
+    <br><br><br><br>
+    <footer>
+        <div class="footer-container">
+            <!-- About Us -->
+            <div class="footer-section about">
+                <h3>About Us</h3>
+                <p>
+                    Kashaf Enterprises is dedicated to the art of embroidery — combining tradition, creativity,
+                    and precision to craft designs that define excellence and beauty.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="our-work.html">Our Work</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-section contact">
+                <h3>Get in Touch</h3>
+                <p><strong>Email:</strong> kashafenterprises2025@gmail.com</p><br>
+                <p><strong>Phone:</strong> (+92)301-2648387 | (+92)319-2343878 </p><br>
+                <p><strong>Location:</strong> Plot No. CI-83, Sector 16/B, Near Godra Camp, North Karachi</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Kashaf Enterprises. All Rights Reserved.</p>
+            <p>Made by <a href="#" target="_blank">Ibrahim Anjum</a></p>
+        </div>
+    </footer>
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("show");
+        }
+        const nav = document.querySelector("nav");
+        const main = document.querySelector("main");
+
+        window.addEventListener("scroll", () => {
+            // Once the nav scrolls past the main section top, make it sticky
+            if (window.scrollY > main.offsetTop + 100) {
+                nav.classList.add("sticky");
+            } else {
+                nav.classList.remove("sticky");
+            }
+        });
+
+        // Optional JS: fade the loader away after content loads
+        window.addEventListener("load", () => {
+            const loader = document.querySelector(".embroidery-loader");
+            loader.classList.add("fadesout");
+            setTimeout(() => loader.style.display = "none", 1000);
+        });
+        window.addEventListener("load", () => {
+            const text = document.querySelector(".reveal-text");
+            // Duplicate text content into data-text for ::after
+            text.setAttribute("data-text", text.textContent);
+            setTimeout(() => {
+                text.classList.add("active");
+            }, 500); // delay before animation starts
+        });
+    </script>
+    <!-- page script -->
+<script>
+const phases = [
+  {
+    title: "Phase 1: Digitizing the design",
+    steps: [
+      {
+        sub: "1. Prepare your artwork",
+        text: `Select a high-quality image. Start with a high-resolution image, such as a vector file (.AI, .EPS, .SVG), if possible, as it can be resized without losing quality. A high-resolution raster file (.JPEG, .PNG) can also work, but tracing it during the digitizing process will be more difficult.
+Simplify complex artwork. Intricate details and tiny text do not translate well into thread. Simplify fine lines, remove excessive small elements, and use bold, legible fonts. Gradients and soft shading are also not possible with standard embroidery and should be converted to solid colors.
+Choose thread colors and consider fabric type. Select the thread colors that match your design. Also, think about the fabric the design will be sewn on, as its texture and weight will influence your digitizing decisions.`,
+        visuals: [
+          { src: "embroidery1.jpg", caption: "High-Resolution Artwork" },
+          { src: "art3.jpg", caption: "Vector File Example" },
+          { src: "design3.jpeg", caption: "Simplified Design" },
+          { src: "art1.jpg", caption: "Color and Thread Planning" }
+        ]
+      },
+      {
+        sub: "2. Digitize the artwork",
+        text: `Import into software. Open your chosen digitizing software, such as Hatch, Wilcom, or Embrilliance, and import your prepared artwork.
+Size the design. Resize the image to the exact dimensions you need it to be on your finished product. Ensure it fits within your embroidery machine's hoop area.
+Create outlines and filled areas. Using the software's tools, manually or automatically trace the design. You will create paths that will become stitches:
+Running stitch: Best for outlines and fine details.
+Satin stitch: Best for words, borders, and creating a shiny finish.
+Fill stitch (or Tatami stitch): Used to fill in large areas with color.
+Set stitch parameters.`,
+        visuals: [
+          { src: "design2.jpeg", caption: "Software Interface" },
+          { src: "digitize3.jpg", caption: "Assigning Stitch Types" },
+          { src: "digitize4.jpg", caption: "Setting Stitch Parameters" }
+        ]
+      },
+      {
+        sub: "3. Export the embroidery file",
+        text: `Save in a compatible format. Export the finished design in a format that your embroidery machine can read. Common formats include .DST, .PES, .EXP, and .JEF.
+Transfer the file. Move the file from your computer to your embroidery machine, typically via a USB cable or flash drive. `,
+        visuals: [
+        ]
+      }
+    ]
+  },
+  {
+    title: "Phase 2: Executing on fabric",
+    steps: [
+      {
+        sub: "1. Prepare the fabric",
+        text: `Choose the right stabilizer. The stabilizer, a backing material, is crucial for preventing the fabric from shifting and puckering. The correct type depends on the fabric's weight and stretchiness.
+Secure the fabric in a hoop. Place the stabilizer and fabric together in the embroidery hoop. Ensure the fabric is taut but not stretched or distorted, which could cause puckering.`,
+        visuals: [
+          { src: "fabric2.webp", caption: "Hooping the Fabric" },
+          { src: "fabric3.webp", caption: "Securing Fabric" },
+          { src: "fabric4.jpg", caption: "Ready for Stitching" }
+        ]
+      },
+      {
+        sub: "2. Prepare the embroidery machine",
+        text: `Thread the machine. Make sure your machine is threaded properly according to the manual. This includes winding the bobbin evenly with the correct thread.
+Choose the right needle. The needle type and size should match your fabric and thread type to avoid skipped stitches and breakage.
+Match thread colors. Load your machine with the same thread colors assigned during the digitizing process.`,
+        visuals: [
+          { src: "machine1.png", caption: "Thread Setup" },
+          { src: "machine2.jpg", caption: "Needle Selection" },
+          { src: "machine3.jpg", caption: "Color Matching" },
+          { src: "machine4.jpg", caption: "Machine Calibration" }
+        ]
+      },
+      {
+        sub: "3. Embroider the test sample",
+        text: `Run a test stitch. Before embroidering on your final product, run a test on a scrap piece of the same fabric with the same settings. This allows you to check for any issues.
+Inspect the results. Review the test stitch for correct tension, color, and design quality. Make any necessary adjustments to your digitizing file or machine settings and test again if needed.`,
+        visuals: [
+          { src: "test1.webp", caption: "Test Stitch Sample" },
+          { src: "test2.jpg", caption: "Adjusting Tension" },
+          { src: "test3.jpg", caption: "Final Test Result" }
+        ]
+      },
+      {
+        sub: "4. Execute the final design",
+        text: `Position the fabric. Put the hooped, stabilized fabric into the machine's arm and double-check that the needle is correctly positioned to start the design.
+Monitor the process. Watch the machine as it sews. Be prepared to pause and resolve any issues, such as thread breaks or tangles.
+Finish the product. Once the machine is done, remove the fabric from the hoop. Remove the stabilizer and trim any loose threads to complete the embroidery.`,
+        visuals: [
+          { src: "shaneel.jpeg", caption: "Final Product" },
+          { src: "final2.webp", caption: "Final Product" },
+          { src: "final3.jpg", caption: "Final Product" },
+          { src: "final4.jpg", caption: "Final Product" }
+        ]
+      }
+    ]
+  }
+];
+
+let phaseIndex = 0;
+let stepIndex = 0;
+
+const titleEl = document.querySelector(".info h1");
+const subHeadingEl = document.getElementById("sub-heading");
+const paragraphEl = document.getElementById("paragraph");
+const nextBtn = document.getElementById("next-btn");
+const visualsGrid = document.querySelector(".visuals-grid");
+const seeVisualsBtn = document.querySelector(".see-visuals-btn");
+
+// === Helper function to update visuals ===
+function updateVisuals() {
+  const visuals = phases[phaseIndex].steps[stepIndex].visuals;
+  visualsGrid.style.opacity = "0"; // fade out current visuals
+
+  setTimeout(() => {
+    visualsGrid.innerHTML = visuals.map(v => `
+      <div class="visual-frame">
+        <img src="${v.src}" alt="${v.caption}">
+        <p>${v.caption}</p>
+      </div>
+    `).join("");
+    visualsGrid.style.opacity = "1"; // fade back in
+  }, 400);
+}
+
+nextBtn.addEventListener("click", () => {
+  subHeadingEl.classList.add("fadesout");
+  paragraphEl.classList.add("fadesout");
+
+  setTimeout(() => {
+    // Move to next step
+    stepIndex++;
+    if (stepIndex >= phases[phaseIndex].steps.length) {
+      stepIndex = 0;
+      phaseIndex = (phaseIndex + 1) % phases.length;
+    }
+
+    // Update text content
+    titleEl.innerHTML = `<span style="font-weight:200;">${phases[phaseIndex].title.split(":")[0]}:</span> ${phases[phaseIndex].title.split(":")[1]}`;
+    subHeadingEl.textContent = phases[phaseIndex].steps[stepIndex].sub;
+    paragraphEl.textContent = phases[phaseIndex].steps[stepIndex].text;
+
+    // Update visuals dynamically
+    updateVisuals();
+
+    // Animate back in
+    subHeadingEl.classList.remove("fadesout");
+    paragraphEl.classList.remove("fadesout");
+    subHeadingEl.classList.add("fadesin");
+    paragraphEl.classList.add("fadesin");
+
+    setTimeout(() => {
+      subHeadingEl.classList.remove("fadesin");
+      paragraphEl.classList.remove("fadesin");
+    }, 600);
+  }, 600);
+});
+
+// === See Visuals toggle ===
+seeVisualsBtn.addEventListener("click", () => {
+  seeVisualsBtn.style.opacity = "0";
+  setTimeout(() => {
+    seeVisualsBtn.style.display = "none";
+    visualsGrid.classList.remove("hidden");
+    setTimeout(() => visualsGrid.classList.add("active"), 100);
+    updateVisuals(); // show first visuals immediately
+  }, 400);
+});
+
+// Make visuals-grid draggable (horizontal drag scroll)
+const grid = document.querySelector('.visuals-grid');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+grid.addEventListener('mousedown', (e) => {
+  isDown = true;
+  grid.classList.add('dragging');
+  startX = e.pageX - grid.offsetLeft;
+  scrollLeft = grid.scrollLeft;
+});
+grid.addEventListener('mouseleave', () => {
+  isDown = false;
+  grid.classList.remove('dragging');
+});
+grid.addEventListener('mouseup', () => {
+  isDown = false;
+  grid.classList.remove('dragging');
+});
+grid.addEventListener('mousemove', (e) => {
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - grid.offsetLeft;
+  const walk = (x - startX) * 1.5; // scroll speed
+  grid.scrollLeft = scrollLeft - walk;
+});
+
+</script>
+
+</body>
+
+</html>

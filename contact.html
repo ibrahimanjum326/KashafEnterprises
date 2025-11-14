@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Kashaf Enterprises - Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<style>
+    .contact-container {
+        margin: 60px auto;
+        padding: 0 5%;
+        max-width: 1200px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    /* Map + Form base styles */
+    .map-container,
+    .contact-form {
+        flex: 1 1 400px;
+        border-radius: 15px;
+        border: 2px solid #a1a1a1;
+        background: #fff;
+        box-sizing: border-box;
+    }
+
+    /* Map styling */
+    .map-container {
+        height: 510px;
+        overflow: hidden;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+    }
+
+    /* Form styling */
+    .contact-form {
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form h2 {
+        color: orangered;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 15px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        border-color: orangered;
+        outline: none;
+    }
+
+    .name-fields {
+        display: flex;
+        gap: 10px;
+    }
+
+    .name-fields input {
+        width: 50%;
+    }
+
+    .contact-form button {
+        width: 100%;
+        background: orangered;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .contact-form button:hover {
+        background: rgb(255, 94, 0);
+        transform: translateY(-2px);
+    }
+
+    /* 📱 Tablet & Small Screens */
+    @media (max-width: 900px) {
+        .contact-container {
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding: 0 6%;
+        }
+
+        .map-container,
+        .contact-form {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 380px;
+        }
+
+        .name-fields {
+            flex-direction: column;
+        }
+
+        .name-fields input {
+            width: 100%;
+        }
+    }
+
+    /* ===== Contact Heading Section ===== */
+    .contact-heading {
+        text-align: center;
+        margin-top: 80px;
+        margin-bottom: 40px;
+        padding: 0 8%;
+    }
+
+    .contact-heading h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #111;
+    }
+
+    .contact-heading h2 span {
+        color: orangered;
+    }
+
+    .contact-heading p {
+        color: #555;
+        font-size: 1.1rem;
+        margin-top: 10px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+
+    /* 📱 Responsive */
+    @media (max-width: 768px) {
+        .contact-heading h2 {
+            font-size: 2rem;
+        }
+
+        .contact-heading p {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .contact-heading {
+            margin-top: 60px;
+            margin-bottom: 30px;
+        }
+
+        .contact-heading h2 {
+            font-size: 1.7rem;
+        }
+
+        .contact-heading p {
+            font-size: 0.95rem;
+        }
+    }
+
+    /* 📱 Extra Small (Phones) */
+    @media (max-width: 480px) {
+
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        .contact-container {
+            padding: 0 4%;
+            margin: 40px auto;
+            gap: 25px;
+        }
+
+        .map-container,
+        .contact-form {
+            width: 100%;
+            max-width: 100%;
+            min-width: unset;
+        }
+
+        .map-container iframe {
+            width: 100%;
+        }
+
+        .contact-form {
+            padding: 20px;
+        }
+
+        .contact-form h2 {
+            font-size: 1.4rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            font-size: 0.95rem;
+        }
+
+        .contact-form button {
+            font-size: 0.95rem;
+        }
+    }
+
+    /* ===== View Our Credentials Section ===== */
+    .credentials-section {
+        text-align: center;
+        background: rgba(255, 250, 232, 0.8);
+        padding: 80px 10%;
+        color: #222;
+    }
+
+    .credentials-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        font-weight: 700;
+        color: #111;
+    }
+
+    .credentials-section h2 span {
+        color: orangered;
+    }
+
+    .credentials-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .cred-card {
+        background: rgba(242, 255, 167, 0.425);
+        backdrop-filter: blur(12px);
+        border-radius: 20px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px 25px;
+        max-width: 320px;
+        flex: 1 1 280px;
+        transition: all 0.3s ease;
+    }
+
+    .cred-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 30px rgba(255, 94, 0, 0.3);
+    }
+
+    .cred-card i {
+        font-size: 2.5rem;
+        color: orangered;
+        margin-bottom: 15px;
+    }
+
+    .cred-card h3 {
+        font-size: 1.3rem;
+        color: #222;
+        margin-bottom: 10px;
+    }
+
+    .cred-card p {
+        color: #555;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    /* 📱 Responsive Design */
+    @media (max-width: 768px) {
+        .credentials-section {
+            padding: 60px 6%;
+        }
+
+        .credentials-section h2 {
+            font-size: 2rem;
+        }
+
+        .credentials-grid {
+            gap: 25px;
+        }
+
+        .cred-card {
+            padding: 30px 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .credentials-section {
+            padding: 50px 5%;
+        }
+
+        .credentials-section h2 {
+            font-size: 1.7rem;
+        }
+
+        .cred-card {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+</style>
+
+<body>
+    <div class="embroidery-loader">
+        <div class="needle"></div>
+        <div class="thread"></div>
+        <h2 class="loader-text">Kashaf <span>Enterprises</span></h2>
+    </div>
+
+    <body>
+        <main>
+            <header>
+                <nav>
+                    <div class="logo">
+                        Kashaf<span class="conn" style="color: orangered;">Enterprises</span>
+                    </div>
+
+                    <div class="menu-toggle" onclick="toggleMenu()">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+
+                    <div class="as" id="menu">
+                        <a class="a" href="index.html">Home</a>
+                        <a class="a" href="about.html">About</a>
+                        <a class="a" href="contact.html">Contact</a>
+                        <a class="a" href="facilities.html">Facilities</a>
+                        <a href="our-work.html" class="cta-btn">Our Work</a>
+                    </div>
+                </nav>
+            </header>
+
+            <h1 class="reveal-text">Contact</h1>
+        </main>
+        <section class="credentials-section">
+            <h2>View Our <span>Credentials</span></h2>
+
+            <div class="credentials-grid">
+                <div class="cred-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Our Location</h3>
+                    <p>Plot No. CI-83, Sector 16/B, Near Godra Camp, North Karachi</p>
+                </div>
+
+                <div class="cred-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>kashafenterprises2025@gmail.com</p>
+                </div>
+
+                <div class="cred-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Call Us</h3>
+                    <p>(+92)301-2648387 | (+92)319-2343878</p>
+                </div>
+            </div>
+        </section>
+        <section class="main">
+            <div class="contact-heading">
+                <h2>Get in <span>Touch</span> with Us</h2>
+                <p>We’d love to hear from you — whether it’s a custom order, a partnership inquiry, or a simple hello.
+                </p>
+            </div>
+            <div class="contact-container">
+                <form class="contact-form" id="customForm"
+                    action="https://formsubmit.co/kashafenterprises2025@gmail.com" method="POST">
+                    <h2>Send Us a Message</h2>
+
+                    <div class="name-fields">
+                        <input type="text" name="first_name" placeholder="First Name" required>
+                        <input type="text" name="last_name" placeholder="Last Name" required>
+                    </div>
+
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+
+                    <!-- ✅ Hidden fields required by FormSubmit -->
+                    <input type="hidden" name="_next" value="http://localhost:5500/">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="box">
+
+                    <button type="submit">Send Message</button>
+                </form>
+                <br>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3617.037660605344!2d67.08081177537436!3d24.964833277861306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDU3JzUzLjQiTiA2N8KwMDUnMDAuMiJF!5e0!3m2!1sen!2s!4v1761528949921!5m2!1sen!2s"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+        <br><br><br><br>
+        <footer>
+            <div class="footer-container">
+                <!-- About Us -->
+                <div class="footer-section about">
+                    <h3>About Us</h3>
+                    <p>
+                        Kashaf Enterprises is dedicated to the art of embroidery — combining tradition, creativity,
+                        and precision to craft designs that define excellence and beauty.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="our-work.html">Our Work</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section contact">
+                    <h3>Get in Touch</h3>
+                    <p><strong>Email:</strong> kashafenterprises2025@gmail.com</p><br>
+                    <p><strong>Phone:</strong> (+92)301-2648387 | (+92)319-2343878 </p><br>
+                    <p><strong>Location:</strong> Plot No. CI-83, Sector 16/B, Near Godra Camp, North Karachi</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Kashaf Enterprises. All Rights Reserved.</p>
+                <p>Made by <a href="#" target="_blank">Ibrahim Anjum</a></p>
+            </div>
+        </footer>
+        <script>
+            function toggleMenu() {
+                document.getElementById("menu").classList.toggle("show");
+            }
+            const nav = document.querySelector("nav");
+            const main = document.querySelector("main");
+
+            window.addEventListener("scroll", () => {
+                // Once the nav scrolls past the main section top, make it sticky
+                if (window.scrollY > main.offsetTop + 100) {
+                    nav.classList.add("sticky");
+                } else {
+                    nav.classList.remove("sticky");
+                }
+            });
+
+            // Optional JS: fade the loader away after content loads
+            window.addEventListener("load", () => {
+                const loader = document.querySelector(".embroidery-loader");
+                loader.classList.add("fade-out");
+                setTimeout(() => loader.style.display = "none", 1000);
+            });
+            window.addEventListener("load", () => {
+                const text = document.querySelector(".reveal-text");
+                // Duplicate text content into data-text for ::after
+                text.setAttribute("data-text", text.textContent);
+                setTimeout(() => {
+                    text.classList.add("active");
+                }, 500); // delay before animation starts
+            });
+        </script>
+    </body>
+
+</html>
